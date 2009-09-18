@@ -25,4 +25,5 @@ to build, run ``make`` from this directory. Then simply double click the
 Contact
 -------
 Abhishek Mukherjee <abhishek.mukher.g@gmail.com> // FirefoxNotify author
+
 Marco Simonelli <sumydi@gmail.com> //IceCatNotify author
