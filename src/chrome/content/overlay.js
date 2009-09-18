@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright 2009 Abhishek Mukherjee <abhishek.mukher.g@gmail.com
+ * Copyright 2009 Marco Simonelli <sumydi@gmail.com>
  */
 /* Originally written by dot_j on the mumbles project, could not find a date */
 
@@ -27,7 +27,7 @@ var download_complete_notify = {
               
     this.dlMgr.addListener(download_complete_notify);
 
-    // disable native firefox download notifications
+    // disable native icecat download notifications
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                     .getService(Components.interfaces.nsIPrefService);
     prefs.setBoolPref("browser.download.manager.showAlertOnComplete",false);
@@ -37,7 +37,7 @@ var download_complete_notify = {
 
         var exec = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 
-	const MY_ID = 'firefoxnotify@abhishek.mukherjee';
+	const MY_ID = 'icecatnotify@marco.simonelli';
 	const DIR_SERVICE = Components.classes["@mozilla.org/extensions/manager;1"].
 		getService(Components.interfaces.nsIExtensionManager);
     try {
@@ -62,7 +62,7 @@ var download_complete_notify = {
             alert("Error running download_complete_notify.py");
         }
     } catch (e) {
-        alert("FirefoxNotify Failed"+e);
+        alert("IceCatNotify Failed"+e);
         return;
     }
   },
