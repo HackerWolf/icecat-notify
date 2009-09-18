@@ -12,7 +12,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2009 Abhishek Mukherjee <abhishek.mukher.g@gmail.com>
+# Copyright 2009 Marco Simonelli <sumydi@gmail.com>
 """
 Opens a file in a galago aware environment to inform the user that a download
 has completed
@@ -31,7 +31,7 @@ try:
     import gettext
     path = os.path.join(*([os.path.dirname(__file__)] + [os.pardir]*2 + ['po']))
     path = os.path.abspath(path)
-    gettext.install('firefoxnotify', path)
+    gettext.install('icecatnotify', path)
 except ImportError:
     _ = lambda x: unicode(x)
 
@@ -54,11 +54,11 @@ class GalagoNotRunningException(Exception):
     pass
 
 
-if not pynotify.init("FirefoxNotify"):
+if not pynotify.init("IceCatNotify"):
     raise GalagoNotRunningException
 
 
-POSSIBLE_ICON_NAMES = ('firefox', 'firefox-3.0', 'firefox-icon')
+POSSIBLE_ICON_NAMES = ('icecat')
 
 def get_icon():
     try:
@@ -72,21 +72,21 @@ def get_icon():
         return POSSIBLE_ICON_NAMES[0]
 
 
-class FirefoxNotification(object):
+class IceCatNotification(object):
 
     """
-    Notification for a download complete from Firefox, essentially a wrapper
+    Notification for a download complete from IcaCat, essentially a wrapper
     around pynotify
     """
 
     def __init__(self, title, location):
-        """Creates a Notification for Firefox"""
+        """Creates a Notification for IceCat"""
         self.title = title
         self.location = location
         self.notif = None
 
     def show(self):
-        """Displays a notification for firefox.
+        """Displays a notification for icecat.
 
         Adds actions open and opendir if available
         
@@ -157,15 +157,14 @@ class FirefoxNotification(object):
 
 
 def main(argv):
-    """Opens a notification in firefox
-
+    """Opens a notification in icecat
     sys.argv[1] should be the title and sys.argv[2] should be the location
 
     """
     if len(argv) != 3:
         LOG.critical(_("Invalid number of arguments called"))
         return 1
-    notify = FirefoxNotification(argv[1], argv[2])
+    notify = IceCatNotification(argv[1], argv[2])
     notify.show()
     return 0
 
