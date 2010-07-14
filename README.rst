@@ -20,7 +20,7 @@ Optional:
 Installation
 ------------
 to build, run ``make`` from this directory. Then simply double click the
-``.xpi`` file or drag the file onto Firefox to install.
+``.xpi`` file or drag the file onto IceCat to install.
 
 Contact
 -------
