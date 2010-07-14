@@ -1,6 +1,6 @@
 package: logo
 	(cd src && find . \( -iname "*.pyc" -or -iname ".*.swp" \) -delete && \
-	zip -r ../IceCatNotify-nightly.xpi chrome chrome.manifest defaults/ install.rdf)
+	zip -r ../IceCatNotify.xpi chrome chrome.manifest defaults/ install.rdf)
 
 logo: src/chrome/content/logo.png
 
@@ -9,4 +9,4 @@ src/chrome/content/logo.png: logo.svg
 
 .PHONY: package clean
 clean:
-	rm -f IceCatNotify-nightly.zip
+	rm -f IceCatNotify.zip
